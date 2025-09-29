@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegisterGuidePage extends StatelessWidget {
+  const RegisterGuidePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,17 @@ class LoginPage extends StatelessWidget {
                 children: [
                   _buildTitleBadge("Global Wings"),
                   const SizedBox(height: 40),
-                  _buildForm(context,
-                      title: "Inicia Sesión",
-                      fields: [
-                        {"label": "Correo Electrónico", "icon": Icons.email},
-                        {"label": "Contraseña", "icon": Icons.lock, "obscure": true},
-                      ],
-                      buttonText: "Iniciar Sesión"),
+                  _buildForm(
+                    context,
+                    title: "Registro de Guía",
+                    fields: [
+                      {"label": "Nombre Completo", "icon": Icons.person},
+                      {"label": "Correo Electrónico", "icon": Icons.email},
+                      {"label": "Certificación", "icon": Icons.school},
+                      {"label": "Especialización", "icon": Icons.work},
+                      {"label": "Contraseña", "icon": Icons.lock, "obscure": true},
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -55,8 +59,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _buildForm(BuildContext context,
-      {required String title, required List<Map<String, dynamic>> fields, required String buttonText}) {
+  Widget _buildForm(BuildContext context, {required String title, required List<Map<String, dynamic>> fields}) {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -88,7 +91,7 @@ class LoginPage extends StatelessWidget {
                   backgroundColor: Colors.green,
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
-              child: Text(buttonText, style: const TextStyle(fontSize: 18)),
+              child: const Text("Registrarse", style: TextStyle(fontSize: 18)),
             ),
           ),
           const SizedBox(height: 16),

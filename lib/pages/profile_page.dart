@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-// Importamos las páginas de login y registro
+// Importamos las páginas
 import 'login_page.dart';
 import 'register_page.dart';
+import 'register_guid_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -34,7 +35,7 @@ class ProfilePage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 PageRouteBuilder(
-                  pageBuilder: (_, __, ___) => LoginPage(),
+                  pageBuilder: (_, __, ___) => const LoginPage(),
                   transitionsBuilder: (ctx, anim, sec, child) {
                     return FadeTransition(
                       opacity: anim,
@@ -52,13 +53,52 @@ class ProfilePage extends StatelessWidget {
             },
           ),
 
-          // Opción de Registro
+          // Opción de Registro normal
+          ListTile(
+            leading: const Icon(Icons.person_add_alt_1),
+            title: const Text("Registro Normal"),
+            onTap: () {
+              Navigator.of(context).push(
+                PageRouteBuilder(
+                  pageBuilder: (_, __, ___) => const RegisterPage(),
+                  transitionsBuilder: (ctx, anim, sec, child) {
+                    return FadeTransition(
+                      opacity: anim,
+                      child: SlideTransition(
+                        position: Tween<Offset>(
+                          begin: const Offset(0.2, 0),
+                          end: Offset.zero,
+                        ).animate(anim),
+                        child: child,
+                      ),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+
+          // Opción de Registro de Guía
           ListTile(
             leading: const Icon(Icons.person_add),
             title: const Text("Registro de Guía"),
             onTap: () {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => RegisterPage()),
+                PageRouteBuilder(
+                  pageBuilder: (_, __, ___) => const RegisterGuidePage(),
+                  transitionsBuilder: (ctx, anim, sec, child) {
+                    return FadeTransition(
+                      opacity: anim,
+                      child: SlideTransition(
+                        position: Tween<Offset>(
+                          begin: const Offset(0.2, 0),
+                          end: Offset.zero,
+                        ).animate(anim),
+                        child: child,
+                      ),
+                    );
+                  },
+                ),
               );
             },
           ),
