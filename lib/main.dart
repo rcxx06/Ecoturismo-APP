@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'EcoTurismo App',
+      title: 'Global Wings',
       theme: appTheme,
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
