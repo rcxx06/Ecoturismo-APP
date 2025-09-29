@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'theme.dart';
-import 'pages/home_page.dart';
+import 'pages/homelanding_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Global Wings',
       theme: appTheme,
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const HomeLandingPage (),
     );
   }
 }
