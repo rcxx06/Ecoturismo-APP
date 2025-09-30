@@ -23,7 +23,7 @@ class _CatalogoPageState extends State<CatalogoPage> {
       "estatus": "Preocupación Menor",
       "alimentacion": "Moluscos y pequeños crustáceos",
       "zona": "América del Norte",
-      "foto": "assets/images/playero.jpg"
+      "foto": "assets/images/playero.jpeg"
     },
     {
       "nombre": "Reinita Amarilla",
@@ -39,7 +39,7 @@ class _CatalogoPageState extends State<CatalogoPage> {
       "estatus": "Preocupación Menor",
       "alimentacion": "Frutas e insectos",
       "zona": "Bosques tropicales",
-      "foto": "assets/images/tangara.jpg"
+      "foto": "assets/images/Tangara.jpg"
     },
   ];
 
@@ -287,9 +287,9 @@ class _CatalogoPageState extends State<CatalogoPage> {
                     spacing: 20,
                     runSpacing: 20,
                     children: [
-                      _rutaCard("Ruta Norteamérica", "assets/images/ruta1.jpeg"),
-                      _rutaCard("Ruta Centroamérica", "assets/images/ruta2.jpeg"),
-                      _rutaCard("Ruta Sudamérica", "assets/images/ruta3.jpeg"),
+                      _rutaCard("Ruta Norteamérica", "assets/images/rutaTangara.png"),
+                      _rutaCard("Ruta Centroamérica", "assets/images/rutaPlayero.jpg"),
+                      
                     ],
                   ),
                 ],

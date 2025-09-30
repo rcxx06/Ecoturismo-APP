@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ModuloEducativoPage extends StatelessWidget {
   const ModuloEducativoPage({Key? key}) : super(key: key);
 
-  // Paleta principal (ajusta si quieres exactamente los tonos del repo)
-  static const Color bg = Color(0xFFF4FBEB); // fondo claro
-  static const Color green = Color(0xFF4E9B12); // verde principal
+  // Paleta principal
+  static const Color bg = Color(0xFFF4FBEB); 
+  static const Color green = Color(0xFF4E9B12); 
   static const Color deepGreen = Color(0xFF2F6F0B);
 
   final List<_CardData> cards = const [
@@ -58,10 +59,15 @@ class ModuloEducativoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: bg,
       appBar: AppBar(
-        title: const Text('Módulo Educativo'),
+        title: Text(
+          'Módulo Educativo',
+          style: GoogleFonts.montserrat(
+            fontWeight: FontWeight.w700,
+            color: deepGreen,
+          ),
+        ),
         elevation: 0,
         backgroundColor: Colors.white,
-        foregroundColor: deepGreen,
         centerTitle: false,
         shadowColor: Colors.transparent,
       ),
@@ -69,33 +75,61 @@ class ModuloEducativoPage extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 24),
-            // Hero title
+
+            // --- Header con título grande y subrayado ---
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
-                children: const [
+                children: [
                   Text(
                     'Guardianes de la Ruta Migratoria',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 36,
+                    style: GoogleFonts.montserrat(
+                      fontSize: 34,
                       fontWeight: FontWeight.w800,
                       color: Colors.black87,
                       height: 1.05,
                     ),
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
+                  Container(
+                    height: 6,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: green.withOpacity(0.18),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: FractionallySizedBox(
+                        widthFactor: 0.22,
+                        child: Container(
+                          height: 6,
+                          decoration: BoxDecoration(
+                            color: green,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   Text(
                     'Nuestro compromiso es proteger los corredores vitales de las aves. Aprende las prácticas que aseguran un futuro para estas viajeras incansables.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16, color: Colors.black54),
+                    style: GoogleFonts.openSans(
+                      fontSize: 16,
+                      color: Colors.black54,
+                      height: 1.5,
+                    ),
                   ),
                 ],
               ),
             ),
+
             const SizedBox(height: 28),
 
-            // Big green emphasized box (70% biodiversity message)
+            // --- Caja verde (70% biodiversidad) ---
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Container(
@@ -105,7 +139,7 @@ class ModuloEducativoPage extends StatelessWidget {
                   boxShadow: const [
                     BoxShadow(
                       color: Color.fromRGBO(0, 0, 0, 0.08),
-                      blurRadius: 12,
+                      blurRadius: 14,
                       offset: Offset(0, 6),
                     ),
                   ],
@@ -113,31 +147,37 @@ class ModuloEducativoPage extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 36, horizontal: 24),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // icon circle at left
                     Container(
-                      width: 64,
-                      height: 64,
-                      decoration: BoxDecoration(
+                      width: 70,
+                      height: 70,
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.1),
+                            blurRadius: 6,
+                            offset: Offset(0, 3),
+                          )
+                        ],
                       ),
-                      child: const Center(
-                        child: Icon(
-                          Icons.check_circle,
-                          color: green,
-                          size: 40,
-                        ),
+                      child: const Icon(
+                        Icons.eco,
+                        color: green,
+                        size: 38,
                       ),
                     ),
                     const SizedBox(width: 18),
                     Expanded(
                       child: Text(
-                        'El 70% de la biodiversidad aviar depende de estas Rutas. ¡Tu acción es su supervivencia!',
-                        style: const TextStyle(
+                        'El 70% de la biodiversidad aviar depende de estas rutas. ¡Tu acción es su supervivencia!',
+                        style: GoogleFonts.montserrat(
                           color: Colors.white,
                           fontSize: 22,
                           fontWeight: FontWeight.w800,
+                          height: 1.3,
                         ),
                       ),
                     ),
@@ -148,39 +188,35 @@ class ModuloEducativoPage extends StatelessWidget {
 
             const SizedBox(height: 36),
 
-            // Section title
+            // --- Subtítulo ---
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: const [
-                  Expanded(
-                    child: Text(
-                      '7 Prácticas Esenciales para la Conservación',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black87,
-                      ),
-                    ),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '7 Prácticas Esenciales para la Conservación',
+                  style: GoogleFonts.montserrat(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black87,
                   ),
-                ],
+                ),
               ),
             ),
+
             const SizedBox(height: 18),
-            // Cards grid
+
+            // --- Grid de tarjetas ---
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  // Decide columnas responsive
                   final width = constraints.maxWidth;
                   int columns = 1;
                   if (width > 1100) {
                     columns = 3;
                   } else if (width > 700) {
                     columns = 2;
-                  } else {
-                    columns = 1;
                   }
 
                   return Wrap(
@@ -198,9 +234,10 @@ class ModuloEducativoPage extends StatelessWidget {
             ),
 
             const SizedBox(height: 28),
-            // Footer big single card like last image
+
+            // --- Footer con stripe ---
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -216,10 +253,9 @@ class ModuloEducativoPage extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // left green stripe rounded
                     Container(
                       width: 12,
-                      height: 120,
+                      height: 130,
                       decoration: const BoxDecoration(
                         color: deepGreen,
                         borderRadius: BorderRadius.only(
@@ -233,17 +269,17 @@ class ModuloEducativoPage extends StatelessWidget {
                         padding: const EdgeInsets.all(18.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
                               '7. Contribuir a la Ciencia Ciudadana',
-                              style: TextStyle(
+                              style: GoogleFonts.montserrat(
                                   fontWeight: FontWeight.w800, fontSize: 18),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               'Participa en conteos de aves como el Global Big Day o el Christmas Bird Count. Tus datos son esenciales para que los científicos rastreen las poblaciones y planifiquen estrategias de conservación.',
-                              style:
-                                  TextStyle(fontSize: 14, color: Colors.black54),
+                              style: GoogleFonts.openSans(
+                                  fontSize: 14, color: Colors.black54, height: 1.4),
                             ),
                           ],
                         ),
@@ -254,7 +290,7 @@ class ModuloEducativoPage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 36),
+            const SizedBox(height: 40),
           ],
         ),
       ),
@@ -262,7 +298,7 @@ class ModuloEducativoPage extends StatelessWidget {
   }
 }
 
-/// Simple data holder
+/// Datos de tarjeta
 class _CardData {
   final String title;
   final String body;
@@ -274,33 +310,33 @@ class _CardData {
   });
 }
 
-/// Individual card widget styled to match screenshots
+/// Tarjeta individual
 class _EduCard extends StatelessWidget {
   final _CardData data;
   const _EduCard({required this.data, Key? key}) : super(key: key);
 
-  static const Color cardBg = Colors.white;
-  static const Color stripe = Color(0xFF2F6F0B); // left stripe
-  static const Color cardShadow = Color.fromRGBO(46, 125, 50, 0.06);
+  static const Color stripe = Color(0xFF2F6F0B);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // overall container to emulate rounded card with left stripe
       decoration: BoxDecoration(
-        color: cardBg,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: const [
-          BoxShadow(color: cardShadow, blurRadius: 12, offset: Offset(0, 6))
+          BoxShadow(
+            color: Color.fromRGBO(46, 125, 50, 0.06),
+            blurRadius: 12,
+            offset: Offset(0, 6),
+          )
         ],
       ),
       child: Row(
         children: [
-          // left rounded vertical stripe with small outer gap to match look
           Container(
             margin: const EdgeInsets.only(left: 8),
             width: 12,
-            height: 120,
+            height: 130,
             decoration: const BoxDecoration(
               color: stripe,
               borderRadius: BorderRadius.only(
@@ -309,40 +345,43 @@ class _EduCard extends StatelessWidget {
               ),
             ),
           ),
-
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      // circular icon
                       Container(
                         width: 44,
                         height: 44,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF1F7F1),
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFF1F7F1),
                           shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 0),
                         ),
-                        child: Icon(data.icon, color: stripe),
+                        child: Icon(data.icon, color: stripe, size: 24),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
                           data.title,
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w800),
+                          style: GoogleFonts.montserrat(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 12),
                   Text(
                     data.body,
-                    style: const TextStyle(fontSize: 13, color: Colors.black54),
+                    style: GoogleFonts.openSans(
+                      fontSize: 13,
+                      color: Colors.black54,
+                      height: 1.5,
+                    ),
                   ),
                 ],
               ),

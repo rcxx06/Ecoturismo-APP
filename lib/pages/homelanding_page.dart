@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:google_fonts/google_fonts.dart';
 
 import 'catalogo_page.dart';
 import 'educativo_page.dart';
 import 'contact_page.dart';
 import 'profile_page.dart';
+import 'calendar_page.dart';
 
 class HomeLandingPage extends StatefulWidget {
   const HomeLandingPage({super.key});
@@ -19,11 +21,13 @@ class _HomeLandingPageState extends State<HomeLandingPage> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
-      _buildLanding(context),
-      const CatalogoPage(),
-      const ModuloEducativoPage(),
-      const ContactPage(),
-      ProfilePage(),
+      _buildLanding(context),       // 0
+      const CatalogoPage(),         // 1
+      const CalendarPage(),         // 2 (nuevo calendario)
+      const ModuloEducativoPage(),  // 3
+      const ContactPage(),          // 4
+      // ignore: prefer_const_constructors
+      ProfilePage(),                // 5
     ];
 
     return Scaffold(
@@ -41,11 +45,13 @@ class _HomeLandingPageState extends State<HomeLandingPage> {
                 const SizedBox(width: 26),
                 _menuItem("Catálogo", 1),
                 const SizedBox(width: 26),
-                _menuItem("Educativo", 2),
+                _menuItem("Calendario", 2), // 🔹 agregado
                 const SizedBox(width: 26),
-                _menuItem("Contactos", 3),
+                _menuItem("Educativo", 3),
                 const SizedBox(width: 26),
-                _menuItem("Perfil", 4),
+                _menuItem("Contactos", 4),
+                const SizedBox(width: 26),
+                _menuItem("Perfil", 5),
               ],
             ),
           ),
