@@ -4,9 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'catalogo_page.dart';
 import 'educativo_page.dart';
-import 'contact_page.dart';
+import 'reserva_page.dart';
 import 'profile_page.dart';
 import 'calendar_page.dart';
+import 'information_page.dart'; // 🔹 import de la nueva página
 
 class HomeLandingPage extends StatefulWidget {
   const HomeLandingPage({super.key});
@@ -23,11 +24,11 @@ class _HomeLandingPageState extends State<HomeLandingPage> {
     final List<Widget> pages = [
       _buildLanding(context),       // 0
       const CatalogoPage(),         // 1
-      const CalendarPage(),         // 2 (nuevo calendario)
-      const ModuloEducativoPage(),  // 3
-      const ContactPage(),          // 4
-      // ignore: prefer_const_constructors
-      ProfilePage(),                // 5
+      const InformacionPage(),      // 2
+      const CalendarPage(),         // 3
+      const ModuloEducativoPage(),  // 4
+      const ContactPage(),          // 5
+      const ProfilePage(),          // 6
     ];
 
     return Scaffold(
@@ -45,13 +46,15 @@ class _HomeLandingPageState extends State<HomeLandingPage> {
                 const SizedBox(width: 26),
                 _menuItem("Catálogo", 1),
                 const SizedBox(width: 26),
-                _menuItem("Calendario", 2), // 🔹 agregado
+                _menuItem("Información", 2), // 🔹 agregado aquí
                 const SizedBox(width: 26),
-                _menuItem("Educativo", 3),
+                _menuItem("Calendario", 3),
                 const SizedBox(width: 26),
-                _menuItem("Contactos", 4),
+                _menuItem("Educativo", 4),
                 const SizedBox(width: 26),
-                _menuItem("Perfil", 5),
+                _menuItem("Reserva", 5),
+                const SizedBox(width: 26),
+                _menuItem("Perfil", 6),
               ],
             ),
           ),
@@ -150,27 +153,54 @@ class _HomeLandingPageState extends State<HomeLandingPage> {
               ),
               const SizedBox(height: 40),
 
-              // 🔹 Botón moderno
-              ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(202, 255, 255, 0),
-                  foregroundColor: Colors.black,
-                  padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 18),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
+              // 🔹 Botones modernos
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(202, 255, 255, 0),
+                      foregroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      elevation: 10,
+                      shadowColor: Colors.yellowAccent.withOpacity(0.6),
+                    ),
+                    onPressed: () => setState(() => currentIndex = 1),
+                    icon: const Icon(Icons.explore),
+                    label: Text(
+                      "Explorar más 🌍",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
-                  elevation: 10,
-                  shadowColor: Colors.yellowAccent.withOpacity(0.6),
-                ),
-                onPressed: () => setState(() => currentIndex = 1),
-                icon: const Text(""),
-                label: Text(
-                  "Explorar más 🌍",
-                  style: GoogleFonts.montserrat(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+                  const SizedBox(width: 20),
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.tealAccent.shade400,
+                      foregroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      elevation: 10,
+                      shadowColor: Colors.teal.withOpacity(0.6),
+                    ),
+                    onPressed: () => setState(() => currentIndex = 2), // 🔹 lleva a Información
+                    icon: const Icon(Icons.info_outline),
+                    label: Text(
+                      "Información 🦜",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           ),

@@ -15,97 +15,142 @@ class RegisterGuidePage extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                children: [
-                  _buildTitleBadge("Global Wings"),
-                  const SizedBox(height: 40),
-                  _buildForm(
-                    context,
-                    title: "Registro de Guía",
-                    fields: [
-                      {"label": "Nombre Completo", "icon": Icons.person},
-                      {"label": "Correo Electrónico", "icon": Icons.email},
-                      {"label": "Certificación", "icon": Icons.school},
-                      {"label": "Especialización", "icon": Icons.work},
-                      {"label": "Contraseña", "icon": Icons.lock, "obscure": true},
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              double maxWidth =
+                  constraints.maxWidth < 600 ? constraints.maxWidth * 0.9 : 500;
 
-  Widget _buildTitleBadge(String text) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFF00C853), Color(0xFFB2FF59)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 12, offset: Offset(0, 6))],
-      ),
-      child: Text(text,
-          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white, fontFamily: "Cursive")),
-    );
-  }
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    // Franja superior con título
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(vertical: 40),
+                      color: const Color(0xFF9ED8B0),
+                      child: const Text(
+                        "Global Wings",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1B5E20),
+                          fontFamily: "Cursive",
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 40),
 
-  Widget _buildForm(BuildContext context, {required String title, required List<Map<String, dynamic>> fields}) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 15, offset: Offset(0, 6))],
-      ),
-      child: Column(
-        children: [
-          Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.green)),
-          const SizedBox(height: 20),
-          ...fields.map((f) => Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: TextField(
-                  obscureText: f["obscure"] ?? false,
-                  decoration: InputDecoration(
-                    labelText: f["label"],
-                    prefixIcon: Icon(f["icon"]),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-                  ),
+                    // Formulario en tarjeta
+                    Container(
+                      width: maxWidth,
+                      padding: const EdgeInsets.all(24),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 12,
+                            offset: Offset(0, 6),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Registro de Guía",
+                            style: TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Cursive",
+                              color: Color(0xFF4CAF50),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+
+                          // Campos
+                          _buildTextField("Nombre Completo", Icons.person),
+                          const SizedBox(height: 16),
+                          _buildTextField("Correo Electrónico", Icons.email),
+                          const SizedBox(height: 16),
+                          _buildTextField("Certificación", Icons.school),
+                          const SizedBox(height: 16),
+                          _buildTextField("Especialización", Icons.work),
+                          const SizedBox(height: 16),
+                          _buildTextField("Contraseña", Icons.lock,
+                              obscureText: true),
+                          const SizedBox(height: 24),
+
+                          // Botón registrar
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF45B26B),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 14),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                              child: const Text(
+                                "Registrarse",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+
+                          // Botón volver
+                          SizedBox(
+                            width: double.infinity,
+                            child: OutlinedButton(
+                              onPressed: () => Navigator.pop(context),
+                              style: OutlinedButton.styleFrom(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 14),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                              child: const Text(
+                                "Volver",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.green,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              )),
-          const SizedBox(height: 20),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
-              child: const Text("Registrarse", style: TextStyle(fontSize: 18)),
-            ),
+              );
+            },
           ),
-          const SizedBox(height: 16),
-          SizedBox(
-            width: double.infinity,
-            child: OutlinedButton(
-              onPressed: () => Navigator.pop(context),
-              style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
-              child: const Text("Volver", style: TextStyle(fontSize: 16, color: Colors.green)),
-            ),
-          ),
-        ],
+        ),
+      ),
+    );
+  }
+
+  // TextField con icono
+  Widget _buildTextField(String label, IconData icon,
+      {bool obscureText = false}) {
+    return TextField(
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        labelText: label,
+        prefixIcon: Icon(icon, color: Colors.green),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
       ),
     );
   }

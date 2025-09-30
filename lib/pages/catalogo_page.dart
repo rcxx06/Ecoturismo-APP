@@ -39,7 +39,7 @@ class _CatalogoPageState extends State<CatalogoPage> {
       "estatus": "Preocupación Menor",
       "alimentacion": "Frutas e insectos",
       "zona": "Bosques tropicales",
-      "foto": "assets/images/Tangara.jpg"
+      "foto": "assets/images/Tangara.jpeg"
     },
   ];
 
