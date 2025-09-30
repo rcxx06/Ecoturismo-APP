@@ -41,4 +41,54 @@ El proyecto incluye:
 ```bash
 git clone https://github.com/rcxx06/Ecoturismo-APP.git
 cd Ecoturismo-APP
+```
 
+### 2. Instalar las dependencias
+```bash
+ flutter pub get
+```
+
+### 3. Verificar flutter y android SDK
+```bash
+flutter doctor
+```
+### 4. Crear el apk de prueba
+```bash
+flutter apk --realese
+```
+###Uso de la app
+
+Pantalla principal:
+
+Visualiza los destinos ecológicos destacados.
+
+Navega por las diferentes secciones mediante menús o botones.
+
+Explorar destinos:
+
+Selecciona un lugar para ver información detallada, fotos y recomendaciones sostenibles.
+
+Interacción con contenido:
+
+Las imágenes se cargan dinámicamente con cache para mejorar rendimiento.
+
+La app muestra información organizada de manera intuitiva.
+
+Salir de la app:
+
+Usa el botón de inicio o atrás del dispositivo como cualquier otra app Android.
+
+Consejos y notas
+
+La app funciona actualmente con firma de debug, ideal para pruebas.
+
+Próximamente se incluirá un APK listo para instalar directamente desde el repositorio.
+
+Para desarrolladores, se pueden agregar nuevas funcionalidades como geolocalización, favoritos o almacenamiento en la nube.
+
+Autor y contacto
+
+Autores: Raul Castillo ,Francela Altamirano, Leandro Moreira]
+
+
+    
