@@ -56,39 +56,34 @@ flutter doctor
 ```bash
 flutter apk --realese
 ```
-###Uso de la app
+## Uso de la app
 
-Pantalla principal:
+- Pantalla principal:
+- Visualiza los destinos ecológicos destacados.
+- Navega por las diferentes secciones mediante menús o botones.
+- Explorar destinos:
+- Selecciona un lugar para ver información detallada, fotos y recomendaciones sostenibles.
 
-Visualiza los destinos ecológicos destacados.
+## Interacción con contenido:
 
-Navega por las diferentes secciones mediante menús o botones.
+- Las imágenes se cargan dinámicamente con cache para mejorar rendimiento.
+- La app muestra información organizada de manera intuitiva.
 
-Explorar destinos:
+## Salir de la app:
 
-Selecciona un lugar para ver información detallada, fotos y recomendaciones sostenibles.
+- Usa el botón de inicio o atrás del dispositivo como cualquier otra app Android.
 
-Interacción con contenido:
+## Consejos y notas
 
-Las imágenes se cargan dinámicamente con cache para mejorar rendimiento.
+- La app funciona actualmente con firma de debug, ideal para pruebas.
 
-La app muestra información organizada de manera intuitiva.
+- Próximamente se incluirá un APK listo para instalar directamente desde el repositorio.
 
-Salir de la app:
+- Para desarrolladores, se pueden agregar nuevas funcionalidades como geolocalización, favoritos o almacenamiento en la nube.
 
-Usa el botón de inicio o atrás del dispositivo como cualquier otra app Android.
+## Autor y contacto
 
-Consejos y notas
-
-La app funciona actualmente con firma de debug, ideal para pruebas.
-
-Próximamente se incluirá un APK listo para instalar directamente desde el repositorio.
-
-Para desarrolladores, se pueden agregar nuevas funcionalidades como geolocalización, favoritos o almacenamiento en la nube.
-
-Autor y contacto
-
-Autores: Raul Castillo ,Francela Altamirano, Leandro Moreira]
+- Autores: Raul Castillo ,Francela Altamirano, Leandro Moreira]
 
 
     
