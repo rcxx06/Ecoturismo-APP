@@ -83,7 +83,7 @@ flutter apk --realese
 
 ## Autor y contacto
 
-- Autores: Raul Castillo ,Francela Altamirano, Leandro Moreira]
+- Autores: Raul Castillo ,Francela Altamirano, Leandro Moreira.
 
 
     
