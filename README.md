@@ -54,7 +54,7 @@ flutter doctor
 ```
 ### 4. Crear el apk de prueba
 ```bash
-flutter apk --realese
+flutter build apk --realese
 ```
 ## Uso de la app
 
